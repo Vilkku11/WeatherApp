@@ -15,7 +15,7 @@ const WeatherData = ({setWeatherData}) => {
     const response = await fetch(url);
     const answer = await response.json();
 
-    if (answer != null) {
+    if (answer) {
       setWeatherData({
         city: 'Tampere',
         description: 'Cloudy',
