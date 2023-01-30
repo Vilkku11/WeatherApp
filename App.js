@@ -22,10 +22,6 @@ const App = () => {
       description: 'Sunny',
       temperature: 12,
       windSpeed: 2,*/
-
-    const url =
-      'https://api.openweathermap.org/data/2.5/weather?q=Tampere&appid=' +
-      WEATHER_API;
   };
 
   return (
@@ -39,7 +35,7 @@ const App = () => {
           description={weatherData.description}
         />
       </View>
-      <WeatherData></WeatherData>
+      <WeatherData setWeatherData={setWeatherData}></WeatherData>
     </View>
   );
 };
