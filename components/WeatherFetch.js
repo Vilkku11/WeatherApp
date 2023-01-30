@@ -18,7 +18,7 @@ const WeatherData = ({setWeatherData}) => {
     if (answer) {
       setWeatherData({
         city: 'Tampere',
-        description: 'Cloudy',
+        description: answer.weather[0].description,
         temperature: answer.main.temp,
         windSpeed: answer.wind.speed,
       });

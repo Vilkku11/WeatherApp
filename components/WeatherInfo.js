@@ -1,15 +1,22 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import CityList from './CityList';
+
 const WeatherInfo = ({temperature, wind, description, weatherIcon}) => {
   return (
     <View style={styles.wholeColumn}>
-      <View style={styles.bluebox} />
+      <View style={styles.bluebox}>
+        <CityList></CityList>
+      </View>
       <View style={styles.row}>
-        <View style={styles.leftBox} />
+        <View style={styles.leftBox}>
+          <Text style={styles.text}>{description}</Text>
+          <Text style={styles.text}>second</Text>
+        </View>
         <View style={styles.wholeColumn}>
-          <Text style={styles.temperature}>{temperature}C</Text>
-          <Text style={styles.wind}>{wind} m/s</Text>
+          <Text style={styles.text}>{temperature}C</Text>
+          <Text style={styles.text}>{wind} m/s</Text>
         </View>
       </View>
     </View>
@@ -32,13 +39,9 @@ const styles = StyleSheet.create({
   leftBox: {
     flex: 1,
     backgroundColor: 'orange',
+    flexDirection: 'column',
   },
-  temperature: {
-    flex: 1,
-    fontSize: 25,
-    textAlign: 'center',
-  },
-  wind: {
+  text: {
     flex: 1,
     fontSize: 25,
     textAlign: 'center',
