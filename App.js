@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import {View, Button, Text} from 'react-native';
+import {View, Button, Text, StyleSheet} from 'react-native';
 
 import WeatherInfo from './components/WeatherInfo';
 import Header from './components/Header';
@@ -23,10 +23,10 @@ const App = () => {
   };
 
   return (
-    <View style={{flex: 1, flexDirection: 'column'}}>
-      <Header style={{height: '5%'}} city={weatherData.city}></Header>
+    <View style={styles.screenContainer}>
+      <Header style={styles.header} city={weatherData.city}></Header>
       <Text>{TEST}</Text>
-      <View style={{flex: 3}}>
+      <View style={styles.weatherInfoView}>
         <WeatherInfo
           temperature={weatherData.temperature}
           wind={weatherData.windSpeed}
@@ -40,4 +40,18 @@ const App = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  screenContainer: {
+    flex: 1,
+    flexFirection: 'column',
+  },
+  header: {
+    height: '5%',
+  },
+  weatherInfoView: {
+    flex: 3,
+  },
+});
+
 export default App;
