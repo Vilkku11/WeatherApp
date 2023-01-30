@@ -1,8 +1,9 @@
 import {React, useState} from 'react';
-import {View, Button} from 'react-native';
+import {View, Button, Text} from 'react-native';
 
 import WeatherInfo from './components/WeatherInfo';
-import Header from './components/Heaader';
+import Header from './components/Header';
+import {TEST} from '@env';
 
 const App = () => {
   const [weatherData, setWeatherData] = useState({
@@ -13,18 +14,18 @@ const App = () => {
   });
 
   const getWeatherData = () => {
-    setWeatherData = {
+    setWeatherData({
       city: 'Helsinki',
       description: 'Sunny',
       temperature: 12,
       windSpeed: 2,
-    };
+    });
   };
 
   return (
     <View style={{flex: 1, flexDirection: 'column'}}>
       <Header style={{height: '5%'}} city={weatherData.city}></Header>
-
+      <Text>{TEST}</Text>
       <View style={{flex: 3}}>
         <WeatherInfo
           temperature={weatherData.temperature}
