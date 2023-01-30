@@ -3,7 +3,8 @@ import {View, Button, Text, StyleSheet} from 'react-native';
 
 import WeatherInfo from './components/WeatherInfo';
 import Header from './components/Header';
-import {TEST} from '@env';
+import WeatherData from './components/WeatherData';
+import {WEATHER_API} from '@env';
 
 const App = () => {
   const [weatherData, setWeatherData] = useState({
@@ -12,20 +13,25 @@ const App = () => {
     temperature: -6,
     windSpeed: 4,
   });
-
+  const url =
+    'https://api.openweathermap.org/data/2.5/weather?q=Tampere&appid=' +
+    WEATHER_API;
   const getWeatherData = () => {
-    setWeatherData({
+    /*setWeatherData({
       city: 'Helsinki',
       description: 'Sunny',
       temperature: 12,
-      windSpeed: 2,
-    });
+      windSpeed: 2,*/
+
+    const url =
+      'https://api.openweathermap.org/data/2.5/weather?q=Tampere&appid=' +
+      WEATHER_API;
   };
 
   return (
     <View style={styles.screenContainer}>
       <Header style={styles.header} city={weatherData.city}></Header>
-      <Text>{TEST}</Text>
+      <Text>{url}</Text>
       <View style={styles.weatherInfoView}>
         <WeatherInfo
           temperature={weatherData.temperature}
@@ -33,10 +39,7 @@ const App = () => {
           description={weatherData.description}
         />
       </View>
-      <Button
-        style={{flex: 3}}
-        title="Update"
-        onPress={getWeatherData}></Button>
+      <WeatherData></WeatherData>
     </View>
   );
 };
