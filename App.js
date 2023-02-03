@@ -13,11 +13,11 @@ const stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Current weather" compnent={CurrentWeatherPage} />
-        <Stack.Screen name="Weather forecast" component={WeatherForecastPage} />
-        <Stack.Screen name="Settings" compnent={SettingsPage} />
-      </Stack.Navigator>
+      <stack.Navigator>
+        <stack.Screen name="CurrentWeather" component={CurrentWeatherPage} />
+        <stack.Screen name="WeatherForecast" component={WeatherForecastPage} />
+        <stack.Screen name="Settings" component={SettingsPage} />
+      </stack.Navigator>
     </NavigationContainer>
   );
 };

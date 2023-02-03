@@ -1,17 +1,21 @@
 import {React, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 
 import WeatherInfo from '../components/WeatherInfo';
 import Header from '../components/Header';
 import WeatherData from '../components/WeatherFetch';
 
-const CurrentWeatherPage = () => {
+const CurrentWeatherPage = ({navigation}) => {
   const [weatherData, setWeatherData] = useState({
     city: 'Tampere',
     description: 'Cloudy',
     temperature: -6,
     windSpeed: 4,
   });
+  const navigateToForecastPage = () => {
+    console.log('opening another screen');
+    navigation.navigate('WeatherForecast');
+  };
 
   return (
     <View style={styles.screenContainer}>
@@ -24,6 +28,9 @@ const CurrentWeatherPage = () => {
         />
       </View>
       <WeatherData setWeatherData={setWeatherData}></WeatherData>
+      <Button
+        title="Show forecast"
+        onPress={() => navigateToForecastPage()}></Button>
     </View>
   );
 };
