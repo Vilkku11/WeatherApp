@@ -3,7 +3,6 @@ import {View, Button, StyleSheet, Text} from 'react-native';
 import {WEATHER_API} from '@env';
 
 const WeatherData = ({setWeatherData}) => {
-  const [testi, setTesti] = useState('JOU');
   const city = 'Tampere';
   const url =
     'https://api.openweathermap.org/data/2.5/weather?q=' +
@@ -27,7 +26,6 @@ const WeatherData = ({setWeatherData}) => {
   };
   return (
     <View>
-      <Text>{testi}</Text>
       <Button
         style={styles.fetchButton}
         title="Update"

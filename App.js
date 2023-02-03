@@ -1,44 +1,25 @@
 import {React, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 
-import WeatherInfo from './components/WeatherInfo';
-import Header from './components/Header';
-import WeatherData from './components/WeatherFetch';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import CurrentWeatherPage from './pages/CurrentWeatherPage';
+import WeatherForecastPage from './pages/WeatherForecastPage';
+import SettingsPage from './pages/SettingsPage';
+
+const stack = createNativeStackNavigator();
 
 const App = () => {
-  const [weatherData, setWeatherData] = useState({
-    city: 'Tampere',
-    description: 'Cloudy',
-    temperature: -6,
-    windSpeed: 4,
-  });
-
   return (
-    <View style={styles.screenContainer}>
-      <Header style={styles.header} city={weatherData.city}></Header>
-      <View style={styles.weatherInfoView}>
-        <WeatherInfo
-          temperature={weatherData.temperature}
-          wind={weatherData.windSpeed}
-          description={weatherData.description}
-        />
-      </View>
-      <WeatherData setWeatherData={setWeatherData}></WeatherData>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Current weather" compnent={CurrentWeatherPage} />
+        <Stack.Screen name="Weather forecast" component={WeatherForecastPage} />
+        <Stack.Screen name="Settings" compnent={SettingsPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    flexFirection: 'column',
-  },
-  header: {
-    height: '5%',
-  },
-  weatherInfoView: {
-    flex: 3,
-  },
-});
 
 export default App;
